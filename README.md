@@ -1,58 +1,62 @@
-# 📸 ImageOCRAutomation
+📄 ImageOCRAutomation
+An end-to-end automation testing framework using Selenium + SpecFlow + MSTest for validating OCR (Optical Character Recognition) results from images using Tesseract OCR, supporting .resx-based test data, dynamic alias resolution, and multi-language image reading (including Hindi).
 
-A real-time Selenium automation project in C# that integrates **Tesseract OCR** to extract and validate text from images on dynamic web pages. Built with **SpecFlow + MSTest** using `.resx`-based dynamic test data and alias mapping.
-
----
-
-## 🚀 Features
-
-- 🔍 Tesseract OCR image text extraction (supports multi-language like Hindi)
-- 🧪 SpecFlow BDD with MSTest
-- 🧾 Dynamic test data from `.resx` with alias-based referencing (`OCR1.Invoice_URL`)
-- 📷 Screenshots captured and stored on validation failure
-- 🌐 Selenium WebDriver browser automation
-- 📁 Organized with proper Hooks, Utilities, Models, Steps, and Config
-
----
-
-## 🛠️ Tech Stack
-
-- C# (.NET)
-- Selenium WebDriver
-- SpecFlow + MSTest
-- Tesseract OCR (via Tesseract.dll)
-- Resource-based test data (.resx)
-- App.config for screenshot path
-
----
-
-## 📂 Folder Structure
-
+📦 Project Structure
+vbnet
+Copy
+Edit
 ImageOCRAutomation/
 │
 ├── Features/
-│ └── OcrValidation.feature
+│   └── OCRValidation.feature
 │
 ├── Steps/
-│ └── OCRSteps.cs
+│   └── OCRSteps.cs
 │
 ├── Models/
-│ └── OCRModel.cs
+│   └── OCRModel.cs
 │
 ├── Utilities/
-│ ├── OCRHelper.cs
-│ ├── ResxDataLoader.cs
-│ ├── ContextManager.cs
-│ ├── ScreenshotHelper.cs
-│ └── ConfigReader.cs
-│
-├── Hooks/
-│ └── Hooks.cs
+│   ├── ConfigReader.cs
+│   ├── ContextManager.cs
+│   ├── DriverFactory.cs
+│   ├── OCRHelper.cs
+│   ├── ResxDataLoader.cs
+│   └── ScreenshotHelper.cs
 │
 ├── Resources/
-│ └── TestData.resx
+│   └── TestData.resx
+│
+├── Hooks/
+│   └── Hooks.cs
+│
+├── Screenshots/
+│   └── (Auto-generated on failures)
 │
 ├── App.config
 ├── ImageOCRAutomation.csproj
 ├── .gitignore
 └── README.md
+🚀 Features
+✅ Tesseract OCR integration for image text extraction.
+
+✅ Dynamic alias-based test data from .resx (no hardcoding).
+
+✅ Page navigation and test data control via aliases like OCR1, OCR2.
+
+✅ Screenshot capture on failure.
+
+✅ Hindi and multi-language OCR support.
+
+✅ SpecFlow + MSTest-based structured testing.
+
+✅ Clean page-independent Gherkin scenarios.
+
+🔧 Prerequisites
+.NET 6 or 7 SDK
+
+Tesseract OCR binaries (tessdata)
+
+Chrome browser and ChromeDriver
+
+Visual Studio 2022 or Rider
