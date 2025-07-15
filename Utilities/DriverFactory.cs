@@ -1,20 +1,37 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System;
+using System.IO;
 
 namespace ImageOCRAutomation.Utilities
 {
     public static class DriverFactory
     {
-        public static IWebDriver InitializeDriver()
+        [ThreadStatic]
+        private static IWebDriver driver;
+
+        public static IWebDriver GetDriver()
+        {
+            return driver ??= CreateDriver();
+        }
+
+        private static IWebDriver CreateDriver()
         {
             var options = new ChromeOptions();
-            string driverPath = ConfigReader.Get("DriverPath");
-            var driver = new ChromeDriver(driverPath, options);
+            options.AddArgument("--start-maximized");
 
-            if (bool.Parse(ConfigReader.Get("MaximizeWindow")))
-                driver.Manage().Window.Maximize();
+            var driverPath = ConfigReader.Get("DriverPath") ?? Directory.GetCurrentDirectory();
+            var timeout = TimeSpan.FromSeconds(Convert.ToInt32(ConfigReader.Get("ImplicitWait") ?? "10"));
 
-            return driver;
+            var chromeDriver = new ChromeDriver(driverPath, options);
+            chromeDriver.Manage().Timeouts().ImplicitWait = timeout;
+            return chromeDriver;
+        }
+
+        public static void QuitDriver()
+        {
+            driver?.Quit();
+            driver = null;
         }
     }
 }
