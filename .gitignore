@@ -1,0 +1,47 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore test result files
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.vsp
+*.vspx
+
+# Ignore Visual Studio folders
+.vs/
+_ReSharper*/
+.idea/
+
+# Ignore screenshots and logs (runtime generated)
+Screenshots/
+Logs/
+
+# Ignore temporary files
+*.cache
+*.log
+*.tmp
+
+# Ignore SpecFlow generated files (if any)
+StepDefinitions/*.cs.g.cs
+SpecFlowFeature/*.feature.cs
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore packages (if not committing them)
+packages/
+*.nupkg
+
+# Ignore auto-generated config transforms (optional)
+*.config.transform
