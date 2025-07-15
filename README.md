@@ -2,9 +2,7 @@
 An end-to-end automation testing framework using Selenium + SpecFlow + MSTest for validating OCR (Optical Character Recognition) results from images using Tesseract OCR, supporting .resx-based test data, dynamic alias resolution, and multi-language image reading (including Hindi).
 
 📦 Project Structure
-vbnet
-Copy
-Edit
+
 ImageOCRAutomation/
 │
 ├── Features/
@@ -37,7 +35,9 @@ ImageOCRAutomation/
 ├── ImageOCRAutomation.csproj
 ├── .gitignore
 └── README.md
+
 🚀 Features
+
 ✅ Tesseract OCR integration for image text extraction.
 
 ✅ Dynamic alias-based test data from .resx (no hardcoding).
